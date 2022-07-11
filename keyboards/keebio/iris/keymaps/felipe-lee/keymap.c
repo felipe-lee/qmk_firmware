@@ -169,7 +169,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case DVORAK:
         if (record->event.pressed) {
-            tap_code(KC_ASON)
+            tap_code16(KC_ASON);
 
             set_single_persistent_default_layer(_DVORAK);
         }
@@ -177,7 +177,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         break;
     case GAMING:
         if (record->event.pressed) {
-            tap_code(KC_ASOFF)
+            tap_code16(KC_ASOFF);
 
             set_single_persistent_default_layer(_GAMING);
         }
