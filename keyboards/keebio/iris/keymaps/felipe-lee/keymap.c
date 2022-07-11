@@ -121,7 +121,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_CONFIG] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-     _______, RGB_TOG, _______, _______, _______, _______,                            CAPSWRD, _______, _______, _______, DB_TOGG, QK_BOOT,
+     _______, RGB_TOG, _______, _______, _______, _______,                            CAPSWRD, KC_ASON, KC_ASOFF, _______, DB_TOGG, QK_BOOT,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      RGB_HUI, RGB_SAI, RGB_VAI, RGB_SPI, RGB_MOD, _______,                            _______, _______, _______, _______, _______, QK_RBT,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
@@ -168,12 +168,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case DVORAK:
         if (record->event.pressed) {
+            tap_code(KC_ASON)
+
             set_single_persistent_default_layer(_DVORAK);
         }
         return false;
         break;
     case GAMING:
         if (record->event.pressed) {
+            tap_code(KC_ASOFF)
+
             set_single_persistent_default_layer(_GAMING);
         }
         return false;
