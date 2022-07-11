@@ -29,7 +29,6 @@ enum custom_keycodes {
 // Custom names for complex (or long-named) keycodes
 #define LSF_ENT LSFT_T(KC_ENT)
 #define RSF_SPC RSFT_T(KC_SPC)
-#define DF_GMG  DF(_GAMING)
 #define TT_NAV  TT(_NAV)
 #define TT_FUNC TT(_FUNC)
 #define TT_GMGM TT(_GAMING_MOUSE)
@@ -82,9 +81,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
      _______, _______, KC_MPRV, KC_MPLY, KC_MNXT, _______,                            _______, _______, _______, _______, _______, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, _______, KC_HOME, KC_UP,   KC_END,  KC_PGUP,                            _______, DF_GMG,  _______, _______, _______, _______,
+     _______, _______, KC_HOME, KC_UP,   KC_END,  KC_PGUP,                            _______, _______, _______, _______, _______, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, KC_SPC,  KC_LEFT, KC_DOWN, KC_RIGHT, KC_PGDN,                           _______, _______, _______, _______, _______, _______,
+     _______, KC_SPC,  KC_LEFT, KC_DOWN, KC_RIGHT, KC_PGDN,                           _______, GAMING,  _______, _______, _______, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      _______, _______, KC_MUTE, KC_VOLD, KC_VOLU, _______, _______,          _______, _______, _______, _______, _______, _______, _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
@@ -168,11 +167,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case DVORAK:
-      if (record->event.pressed) {
-        set_single_persistent_default_layer(_DVORAK);
-      }
-      return false;
-      break;
+        if (record->event.pressed) {
+            set_single_persistent_default_layer(_DVORAK);
+        }
+        return false;
+        break;
+    case GAMING:
+        if (record->event.pressed) {
+            set_single_persistent_default_layer(_GAMING);
+        }
+        return false;
+        break;
     case SYMBOLS:
       if (record->event.pressed) {
         layer_on(_SYMBOLS);
