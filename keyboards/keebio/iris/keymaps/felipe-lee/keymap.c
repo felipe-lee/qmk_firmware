@@ -210,15 +210,3 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
   return true;
 }
-
-// https://docs.qmk.fm/#/custom_quantum_functions?id=keyboard-idlingwake-code
-
-void suspend_power_down_user(void) {
-    // code will run multiple times while keyboard is suspended
-    rgblight_disable_noeeprom();
-}
-
-void suspend_wakeup_init_user(void) {
-    // code will run on keyboard wakeup
-    rgblight_enable_noeeprom();
-}
