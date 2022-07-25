@@ -28,3 +28,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // https://docs.qmk.fm/#/feature_caps_word
 #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
+
+// https://docs.qmk.fm/#/feature_rgb_matrix?id=rgb-matrix-effects
+
+#undef ENABLE_RGB_MATRIX_BAND_SAT
+#undef ENABLE_RGB_MATRIX_BAND_VAL
+#undef ENABLE_RGB_MATRIX_BAND_PINWHEEL_SAT
+#undef ENABLE_RGB_MATRIX_BAND_PINWHEEL_VAL
+#undef ENABLE_RGB_MATRIX_BAND_SPIRAL_SAT
+#undef ENABLE_RGB_MATRIX_BAND_SPIRAL_VAL
