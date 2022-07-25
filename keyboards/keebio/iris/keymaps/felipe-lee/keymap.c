@@ -18,8 +18,8 @@ enum my_layers {
 enum custom_keycodes {
     DVORAK = SAFE_RANGE,
     GAMING,
-    SYMBOLS,
     NAV,
+    SYMBOLS,
     NUM,
     FUNC,
     CONFIG,
