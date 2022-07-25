@@ -2,7 +2,7 @@
 
 # https://docs.qmk.fm/#/feature_auto_shift
 # Can't use at the same time as CAPS_WORD...
-AUTO_SHIFT_ENABLE = yes
+AUTO_SHIFT_ENABLE = no
 
 MOUSEKEY_ENABLE = yes        # Mouse keys
 
@@ -10,7 +10,7 @@ MOUSEKEY_ENABLE = yes        # Mouse keys
 # Can't use at the same time as AUTO_SHIFT...
 CAPS_WORD_ENABLE = yes
 
-# I don't really need these so I'm going to disableThem to save space
+# I don't really need these so I'm going to disable them to save space
 CONSOLE_ENABLE = no
 ENCODER_ENABLE = no
 GRAVE_ESC_ENABLE = no
