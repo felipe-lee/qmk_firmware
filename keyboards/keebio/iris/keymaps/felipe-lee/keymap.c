@@ -27,7 +27,6 @@ enum custom_keycodes {
 // Custom names for complex (or long-named) keycodes
 #define LSF_ENT LSFT_T(KC_ENT)
 #define LSF_LCT LSFT_T(KC_LCTL)
-#define RSF_SPC RSFT_T(KC_SPC)
 #define TT_FUNC TT(_FUNC)
 #define TT_GMGM TT(_GAMING_MOUSE)
 #define OSL_CN OSL(_CONFIG)
@@ -44,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      KC_LGUI, KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    KC_LALT,          KC_RALT, KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    KC_RGUI,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                    TT_FUNC, SYMBOLS, LSF_ENT,                   RSF_SPC, SYMBOLS, NUM,
+                                    TT_FUNC, SYMBOLS, LSF_ENT,                   KC_SPC,  SYMBOLS, NUM,
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
   ),
 
