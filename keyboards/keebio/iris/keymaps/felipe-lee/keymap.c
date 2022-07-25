@@ -7,7 +7,7 @@
 enum my_layers {
     _DVORAK,
     _GAMING,
-    _GAMING_MOUSE
+    _GAMING_MOUSE,
     _FUNC,
     _SYMBOLS,
     _NUM,
@@ -17,7 +17,7 @@ enum my_layers {
 enum custom_keycodes {
     DVORAK = SAFE_RANGE,
     GAMING,
-    GAMING_MOUSE
+    GAMING_MOUSE,
     FUNC,
     SYMBOLS,
     NUM,
@@ -43,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      KC_LGUI, KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    KC_LALT,          KC_RALT, KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    KC_RGUI,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                    TT_FUNC, SYMBOLS, LSF_ENT,                   KC_SPC,  SYMBOLS, NUM,
+                                    TT_FUNC, SYMBOLS, LSF_ENT,                   KC_SPC,  SYMBOLS, NUM
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
   ),
 
