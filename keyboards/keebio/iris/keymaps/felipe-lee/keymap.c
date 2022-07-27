@@ -25,11 +25,15 @@ enum custom_keycodes {
 };
 
 // Custom names for complex (or long-named) keycodes
-#define LSF_ENT LSFT_T(KC_ENT)
-#define LSF_LCT LSFT_T(KC_LCTL)
 #define TT_FUNC TT(_FUNC)
 #define TT_GMGM TT(_GAMING_MOUSE)
-#define OSL_CN OSL(_CONFIG)
+#define TT_SYMB TT(_SYMBOLS)
+#define TO_NUM  TO(_NUM)
+#define TO_CONF TO(_CONFIG)
+#define TO_FUNC TO(_FUNC)
+
+#define LSF_ENT LSFT_T(KC_ENT)
+#define LSF_LCT LSFT_T(KC_LCTL)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -43,7 +47,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      KC_LGUI, KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    KC_LALT,          KC_RALT, KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    KC_RGUI,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                    TT_FUNC, SYMBOLS, LSF_ENT,                   KC_SPC,  SYMBOLS, NUM
+                                    TT_FUNC, TT_SYMB, LSF_ENT,                   KC_SPC,  TT_SYMB, KC_RSFT
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
   ),
 
@@ -57,7 +61,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      KC_CAPS, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_LALT,          TT_FUNC, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RGUI,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                    TT_FUNC, KC_SPC,  LSF_ENT,                   KC_SPC,  SYMBOLS, TT_GMGM
+                                    TT_FUNC, KC_SPC,  LSF_ENT,                   KC_SPC,  TT_SYMB, TT_GMGM
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
   ),
 
@@ -77,13 +81,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_FUNC] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-     _______, _______, KC_MPRV, KC_MPLY, KC_MNXT, _______,                            _______, GAMING,  _______, KC_INS,  KC_PSCR, _______,
+     GAMING,  TO_CONF, KC_MPRV, KC_MPLY, KC_MNXT, _______,                            _______, TO_CONF, _______, KC_INS,  KC_PSCR, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, _______, KC_HOME, KC_UP,   KC_END,  KC_PGUP,                            _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   _______,
+     TO_NUM,  _______, KC_HOME, KC_UP,   KC_END,  KC_PGUP,                            _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      _______, KC_SPC,  KC_LEFT, KC_DOWN, KC_RIGHT, KC_PGDN,                           _______, KC_F5,   KC_F6,   KC_F7,   KC_F8,   _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     OSL_CN,  _______, KC_MUTE, KC_VOLD, KC_VOLU, _______, _______,          _______, _______, KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______,
+     _______, _______, KC_MUTE, KC_VOLD, KC_VOLU, _______, _______,          _______, _______, KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     _______, _______, _______,                   _______, _______, _______
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
@@ -95,7 +99,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      _______, KC_DQT,  KC_AT,   KC_DLR,  KC_LPRN, _______,                            _______, KC_RPRN, KC_QUES, KC_EXLM, KC_CIRC, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, KC_GRV,  KC_ASTR, KC_HASH,  KC_UNDS, KC_LCBR,                            KC_RCBR, KC_MINS, KC_PLUS, KC_EQL,  KC_PERC, _______,
+     _______, KC_GRV,  KC_ASTR, KC_HASH, KC_UNDS, KC_LCBR,                            KC_RCBR, KC_MINS, KC_PLUS, KC_EQL,  KC_PERC, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      _______, KC_COLN, KC_TILD, KC_AMPR, KC_LT,   KC_LBRC, _______,          _______, KC_RBRC, KC_GT,   KC_SLSH, KC_BSLS, KC_PIPE, _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
@@ -111,7 +115,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      _______, KC_PPLS, KC_PMNS, KC_PAST, KC_PSLS, KC_PEQL,                            _______, KC_P4,   KC_P5,   KC_P6,   _______, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, KC_COLN, KC_CIRC, KC_DLR,  KC_PERC, _______, _______,          _______, KC_P0,   KC_P1,   KC_P2,   KC_P3,   _______, OSL_CN,
+     _______, KC_COLN, KC_CIRC, KC_DLR,  KC_PERC, _______, _______,          _______, KC_P0,   KC_P1,   KC_P2,   KC_P3,   _______, TO_CONF,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     _______, _______, _______,                   _______, _______, _______
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
@@ -163,34 +167,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
         return false;
         break;
-    case SYMBOLS:
-      if (record->event.pressed) {
-        layer_on(_SYMBOLS);
-        update_tri_layer(_SYMBOLS, _NUM, _CONFIG);
-      } else {
-        layer_off(_SYMBOLS);
-        update_tri_layer(_SYMBOLS, _NUM, _CONFIG);
-      }
-      return false;
-      break;
-    case NUM:
-      if (record->event.pressed) {
-        layer_on(_NUM);
-        update_tri_layer(_SYMBOLS, _NUM, _CONFIG);
-      } else {
-        layer_off(_NUM);
-        update_tri_layer(_SYMBOLS, _NUM, _CONFIG);
-      }
-      return false;
-      break;
-    case CONFIG:
-      if (record->event.pressed) {
-        layer_on(_CONFIG);
-      } else {
-        layer_off(_CONFIG);
-      }
-      return false;
-      break;
   }
   return true;
 }
