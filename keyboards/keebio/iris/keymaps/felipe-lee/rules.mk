@@ -10,6 +10,9 @@ MOUSEKEY_ENABLE = yes        # Mouse keys
 # Can't use at the same time as AUTO_SHIFT...
 CAPS_WORD_ENABLE = yes
 
+# https://docs.qmk.fm/#/feature_tap_dance
+TAP_DANCE_ENABLE = yes
+
 # I don't really need these so I'm going to disable them to save space
 CONSOLE_ENABLE = no
 ENCODER_ENABLE = no

@@ -14,6 +14,10 @@ enum my_layers {
     _CONFIG,
 };
 
+enum tap_dance_keys {
+    TD_RAL_FN,
+};
+
 enum custom_keycodes {
     DVORAK = SAFE_RANGE,
     GAMING,
@@ -24,6 +28,11 @@ enum custom_keycodes {
     CONFIG,
 };
 
+// Tap dance definitions
+qk_tap_dance_action_t tap_dance_actions[] = {
+    [TD_RAL_FN] = ACTION_TAP_DANCE_LAYER_TOGGLE(KC_RALT, _FUNC)
+};
+
 // Custom names for complex (or long-named) keycodes
 #define TT_FUNC TT(_FUNC)
 #define TT_GMGM TT(_GAMING_MOUSE)
@@ -31,6 +40,8 @@ enum custom_keycodes {
 #define TO_NUM  TO(_NUM)
 #define TO_CONF TO(_CONFIG)
 #define TO_FUNC TO(_FUNC)
+
+#define TD_RAFN TD(TD_RAL_FN)
 
 #define LSF_ENT LSFT_T(KC_ENT)
 #define LSF_LCT LSFT_T(KC_LCTL)
@@ -45,7 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      KC_LCTL, KC_A,    KC_O,    KC_E,    KC_U,    KC_I,                               KC_D,    KC_H,    KC_T,    KC_N,    KC_S,    KC_RCTL,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_LGUI, KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    KC_LALT,          KC_RALT, KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    KC_RGUI,
+     KC_LGUI, KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    KC_LALT,          TD_RAFN, KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    KC_RGUI,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     TT_FUNC, TT_SYMB, LSF_ENT,                   KC_SPC,  TT_SYMB, KC_RSFT
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
