@@ -37,9 +37,8 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define TT_FUNC TT(_FUNC)
 #define TT_GMGM TT(_GAMING_MOUSE)
 #define TT_SYMB TT(_SYMBOLS)
-#define TO_NUM  TO(_NUM)
+#define TG_NUM  TG(_NUM)
 #define TO_CONF TO(_CONFIG)
-#define TO_FUNC TO(_FUNC)
 
 #define TD_RAFN TD(TD_RAL_FN)
 
@@ -94,7 +93,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
      GAMING,  TO_CONF, KC_MPRV, KC_MPLY, KC_MNXT, _______,                            _______, TO_CONF, _______, KC_INS,  KC_PSCR, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     TO_NUM,  _______, KC_HOME, KC_UP,   KC_END,  KC_PGUP,                            _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   _______,
+     TG_NUM,  _______, KC_HOME, KC_UP,   KC_END,  KC_PGUP,                            _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      _______, KC_SPC,  KC_LEFT, KC_DOWN, KC_RIGHT, KC_PGDN,                           _______, KC_F5,   KC_F6,   KC_F7,   KC_F8,   _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
