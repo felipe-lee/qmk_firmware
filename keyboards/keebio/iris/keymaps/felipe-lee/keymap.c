@@ -1,4 +1,5 @@
 #include QMK_KEYBOARD_H
+//#include "print.h"
 
 // Sample: https://github.com/qmk/qmk_firmware/pull/17216/files
 
@@ -164,13 +165,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 // https://docs.qmk.fm/#/custom_quantum_functions?id=example-process_record_user-implementation
 // https://docs.qmk.fm/#/ref_functions?id=update_tri_layerx-y-z
+// https://docs.qmk.fm/#/feature_rgb_matrix?id=functions
 
 //bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 //  switch (keycode) {
-//    case DVORAK:
+//    case RGB_RMD:
 //        if (record->event.pressed) {
-//            set_single_persistent_default_layer(_DVORAK);
-//            layer_clear();
+//            print("Reporting mode:");
+//            uprintf("%d", rgb_matrix_get_mode());
 //        }
 //        return false;
 //        break;
