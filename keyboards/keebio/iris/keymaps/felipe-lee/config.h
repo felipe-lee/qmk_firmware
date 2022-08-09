@@ -24,7 +24,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define USE_I2C
 //#define EE_HANDS
 
-#define TAPPING_TOGGLE 2 // tap just once for TT() to toggle the layer
+#define TAPPING_TOGGLE 3 // number of times needed to tap for TT() to toggle the layer
 
 // https://docs.qmk.fm/#/feature_caps_word
 #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
