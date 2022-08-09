@@ -39,6 +39,8 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define TT_SYMB TT(_SYMBOLS)
 #define TG_NUM  TG(_NUM)
 #define TO_CONF TO(_CONFIG)
+#define TO_MAIN TO(_DVORAK)
+#define TO_GMG  TO(_GAMING)
 
 #define TD_RAFN TD(TD_RAL_FN)
 
@@ -63,21 +65,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_GAMING] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-     KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                               KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
+     _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                               KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_DEL,
+     _______,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                               KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      LSF_LCT, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                               KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_CAPS, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_LALT,          TT_FUNC, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RGUI,
+     KC_CAPS, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    _______,          TT_FUNC, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                    TT_FUNC, KC_SPC,  LSF_ENT,                   KC_SPC,  TT_SYMB, TT_GMGM
+                                    _______, KC_SPC,  _______,                   _______, _______, TT_GMGM
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
   ),
 
   [_GAMING_MOUSE] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-     _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, KC_RGUI, DVORAK,
+     _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      _______, _______, _______, _______, _______, _______,                            KC_WH_U, KC_WH_L, KC_MS_U, KC_WH_R, _______, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
@@ -91,7 +93,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_FUNC] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-     GAMING,  TO_CONF, KC_MPRV, KC_MPLY, KC_MNXT, _______,                            _______, TO_CONF, _______, KC_INS,  KC_PSCR, _______,
+     TO_GMG,  TO_CONF, KC_MPRV, KC_MPLY, KC_MNXT, _______,                            TO_MAIN, TO_CONF, _______, KC_INS,  KC_PSCR, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      TG_NUM,  _______, KC_HOME, KC_UP,   KC_END,  KC_PGUP,                            _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
@@ -133,7 +135,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_CONFIG] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-     QK_BOOT, RGB_TOG, _______, _______, _______, DVORAK,                             DVORAK,  _______, _______, _______, DB_TOGG, QK_BOOT,
+     QK_BOOT, RGB_TOG, _______, _______, _______, TO_MAIN,                            TO_MAIN, _______, _______, _______, DB_TOGG, QK_BOOT,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      RGB_HUI, RGB_SAI, RGB_VAI, RGB_SPI, RGB_MOD, _______,                            _______,  _______, _______, _______, _______, QK_RBT,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
@@ -163,22 +165,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // https://docs.qmk.fm/#/custom_quantum_functions?id=example-process_record_user-implementation
 // https://docs.qmk.fm/#/ref_functions?id=update_tri_layerx-y-z
 
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-    case DVORAK:
-        if (record->event.pressed) {
-            set_single_persistent_default_layer(_DVORAK);
-            layer_clear();
-        }
-        return false;
-        break;
-    case GAMING:
-        if (record->event.pressed) {
-            set_single_persistent_default_layer(_GAMING);
-            layer_clear();
-        }
-        return false;
-        break;
-  }
-  return true;
-}
+//bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+//  switch (keycode) {
+//    case DVORAK:
+//        if (record->event.pressed) {
+//            set_single_persistent_default_layer(_DVORAK);
+//            layer_clear();
+//        }
+//        return false;
+//        break;
+//  }
+//  return true;
+//}
