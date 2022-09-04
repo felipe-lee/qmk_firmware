@@ -16,6 +16,7 @@ enum my_layers {
 };
 
 enum tap_dance_keys {
+    TD_LAL_GM,
     TD_RAL_GM,
     TD_RSH_FN,
     TD_LGU_MS,
@@ -32,8 +33,9 @@ enum custom_keycodes {
     CONFIG,
 };
 
-// Tap dance definitions
+// Tap dance definitions  https://docs.qmk.fm/#/feature_tap_dance
 qk_tap_dance_action_t tap_dance_actions[] = {
+    [TD_LAL_GM] = ACTION_TAP_DANCE_LAYER_TOGGLE(KC_LALT, _GAMING),
     [TD_RAL_GM] = ACTION_TAP_DANCE_LAYER_TOGGLE(KC_RALT, _GAMING),
     [TD_RSH_FN] = ACTION_TAP_DANCE_LAYER_TOGGLE(KC_RSFT, _FUNC),
     [TD_LGU_MS] = ACTION_TAP_DANCE_LAYER_TOGGLE(KC_LGUI, _GAMING_MOUSE),
@@ -49,6 +51,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define TO_MAIN TO(_DVORAK)
 #define TO_GMG  TO(_GAMING)
 
+#define TD_LAGM TD(TD_LAL_GM)
 #define TD_RAGM TD(TD_RAL_GM)
 #define TD_RSFN TD(TD_RSH_FN)
 #define TD_LGMS TD(TD_LGU_MS)
@@ -67,7 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      KC_LCTL, KC_A,    KC_O,    KC_E,    KC_U,    KC_I,                               KC_D,    KC_H,    KC_T,    KC_N,    KC_S,    KC_RCTL,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     TD_LGMS, KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    KC_LALT,          TD_RAGM, KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    TD_RGMS,
+     TD_LGMS, KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    TD_LAGM,          TD_RAGM, KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    TD_RGMS,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     TT_FUNC, TT_SYMB, LSF_ENT,                   KC_SPC,  TT_SYMB, TD_RSFN
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
