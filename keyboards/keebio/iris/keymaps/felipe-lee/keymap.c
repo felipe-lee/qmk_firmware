@@ -16,7 +16,10 @@ enum my_layers {
 };
 
 enum tap_dance_keys {
-    TD_RAL_FN,
+    TD_RAL_GM,
+    TD_RSH_FN,
+    TD_LGU_MS,
+    TD_RGU_MS,
 };
 
 enum custom_keycodes {
@@ -31,7 +34,10 @@ enum custom_keycodes {
 
 // Tap dance definitions
 qk_tap_dance_action_t tap_dance_actions[] = {
-    [TD_RAL_FN] = ACTION_TAP_DANCE_LAYER_TOGGLE(KC_RALT, _FUNC)
+    [TD_RAL_GM] = ACTION_TAP_DANCE_LAYER_TOGGLE(KC_RALT, _GAMING),
+    [TD_RSH_FN] = ACTION_TAP_DANCE_LAYER_TOGGLE(KC_RSFT, _FUNC),
+    [TD_LGU_MS] = ACTION_TAP_DANCE_LAYER_TOGGLE(KC_LGUI, _GAMING_MOUSE),
+    [TD_RGU_MS] = ACTION_TAP_DANCE_LAYER_TOGGLE(KC_RGUI, _GAMING_MOUSE),
 };
 
 // Custom names for complex (or long-named) keycodes
@@ -43,7 +49,10 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define TO_MAIN TO(_DVORAK)
 #define TO_GMG  TO(_GAMING)
 
-#define TD_RAFN TD(TD_RAL_FN)
+#define TD_RAGM TD(TD_RAL_GM)
+#define TD_RSFN TD(TD_RSH_FN)
+#define TD_LGMS TD(TD_LGU_MS)
+#define TD_RGMS TD(TD_RGU_MS)
 
 #define LSF_ENT LSFT_T(KC_ENT)
 #define LSF_LCT LSFT_T(KC_LCTL)
@@ -58,9 +67,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      KC_LCTL, KC_A,    KC_O,    KC_E,    KC_U,    KC_I,                               KC_D,    KC_H,    KC_T,    KC_N,    KC_S,    KC_RCTL,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_LGUI, KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    KC_LALT,          TD_RAFN, KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    KC_RGUI,
+     TD_LGMS, KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    KC_LALT,          TD_RAGM, KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    TD_RGMS,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                    TT_FUNC, TT_SYMB, LSF_ENT,                   KC_SPC,  TT_SYMB, KC_RSFT
+                                    TT_FUNC, TT_SYMB, LSF_ENT,                   KC_SPC,  TT_SYMB, TD_RSFN
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
   ),
 
@@ -72,9 +81,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      LSF_LCT, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                               KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_CAPS, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    _______,          TT_FUNC, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, _______,
+     KC_CAPS, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    _______,          _______, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                    _______, KC_SPC,  _______,                   _______, _______, TT_GMGM
+                                    _______, KC_SPC,  _______,                   _______, _______, _______
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
   ),
 
@@ -94,11 +103,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_FUNC] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-     TO_GMG,  TO_CONF, KC_MPRV, KC_MPLY, KC_MNXT, _______,                            TO_MAIN, TO_CONF, _______, KC_INS,  KC_PSCR, _______,
+     _______, TO_CONF, KC_MPRV, KC_MPLY, KC_MNXT, _______,                            _______, TO_CONF, TG_NUM,  KC_INS,  KC_PSCR, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     TG_NUM,  _______, KC_HOME, KC_UP,   KC_END,  KC_PGUP,                            _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   _______,
+     _______, _______, KC_HOME, KC_UP,   KC_END,  KC_PGUP,                            _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, KC_SPC,  KC_LEFT, KC_DOWN, KC_RIGHT, KC_PGDN,                           _______, KC_F5,   KC_F6,   KC_F7,   KC_F8,   _______,
+     TG_NUM, KC_SPC,  KC_LEFT, KC_DOWN, KC_RIGHT, KC_PGDN,                           _______, KC_F5,   KC_F6,   KC_F7,   KC_F8,   _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      _______, _______, KC_MUTE, KC_VOLD, KC_VOLU, _______, _______,          _______, _______, KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
@@ -136,7 +145,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_CONFIG] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-     QK_BOOT, RGB_TOG, _______, _______, _______, TO_MAIN,                            TO_MAIN, _______, _______, _______, DB_TOGG, QK_BOOT,
+     QK_BOOT, RGB_TOG, _______, _______, TO_GMG,  TO_MAIN,                            TO_MAIN, TO_GMG,  _______, _______, DB_TOGG, QK_BOOT,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      RGB_HUI, RGB_SAI, RGB_VAI, RGB_SPI, RGB_MOD, _______,                            _______,  _______, _______, _______, _______, QK_RBT,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
